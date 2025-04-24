@@ -75,9 +75,18 @@ const sidebars: SidebarsConfig = {
       items: [
         'tech-docs/Overview',
         'tech-docs/Architecture',
+        {
+        type: 'doc',
+        id: 'tech-docs/DBSchema',
+        label: 'i-ARM DB Schema',
+      },
         'tech-docs/Targetoperatingsystem',
         'tech-docs/ConfigurationDesign',
-        'tech-docs/DeploymentGuide',
+        {
+    type: 'doc',
+    id: 'tech-docs/DeploymentGuide',
+    label: 'Deployment Guide',
+  },
       ],
     }
   ],
