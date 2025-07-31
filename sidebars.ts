@@ -102,6 +102,7 @@ const sidebars: SidebarsConfig = {
         'product-overview/Overview',
         'product-overview/Usecase',
         'product-overview/FAQ',
+        'product-overview/Roadmap2025',
       ],
     }
   ],
