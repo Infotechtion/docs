@@ -1,10 +1,8 @@
 ---
 id: Roadmap2025
-title: Roadmap 2025
+title:Product Roadmap 2025
 sidebar_label: Roadmap 2025
 ---
-
-<h1>Product Roadmap 2025</h1>
 
 Product Roadmap Definition: A product roadmap is a strategic document that outlines the vision, direction, priorities, and progress of a product over time. It serves as a guide for stakeholders, helping them understand the goals and milestones of the product development process.
 
