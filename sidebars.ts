@@ -2,58 +2,58 @@ import type { SidebarsConfig } from '@docusaurus/plugin-content-docs';
 
 const sidebars: SidebarsConfig = {
   // Add your sidebars here
-  recordsLifecycleSidebar: [
+  dataPostureManagementSidebar: [
     {
       type: 'category',
-      label: 'Records Lifecycle',
+      label: 'Data Posture Management',
       link: {
         type: 'doc',
-        id: 'records-lifecycle/Overview', 
+        id: 'data-posture-management/Overview', 
       },
       items: [
-        'records-lifecycle/Overview',
-        'records-lifecycle/Getstarted',
-        'records-lifecycle/Usermanual',
-        'records-lifecycle/FAQ',
+        'data-posture-management/Overview',
+        'data-posture-management/Getstarted',
+        'data-posture-management/Usermanual',
+        'data-posture-management/FAQ',
       ],
     }
   ],
-  dataDiscoverySidebar: [
+  dataPostureDiscoverySidebar: [
     {
       type: 'category',
-      label: 'Data Discovery',
+      label: 'Data Posture Discovery',
       link: {
         type: 'doc',
-        id: 'data-discovery/Overview', 
+        id: 'data-posture-discovery/Overview', 
       },
       items: [
-        'data-discovery/Overview',
-        'data-discovery/Getstarted',
-        'data-discovery/Usermanual',
-        'data-discovery/FAQ',
+        'data-posture-discovery/Overview',
+        'data-posture-discovery/Getstarted',
+        'data-posture-discovery/Usermanual',
+        'data-posture-discovery/FAQ',
       ],
     }
   ],
-  digitalWorkspaceSidebar: [
+  dataCompliancePostureSidebar: [
     {
       type: 'category',
-      label: 'Digital Workspace',
+      label: 'Digital Compliance Posture',
       link: {
         type: 'doc',
-        id: 'digital-workspace/Overview', 
+        id: 'data-compliance-posture/Overview', 
       },
       items: [
-        'digital-workspace/Overview',
-        'digital-workspace/Getstarted',
-        'digital-workspace/Usermanual',
-        'digital-workspace/FAQ',
+        'data-compliance-posture/Overview',
+        'data-compliance-posture/Getstarted',
+        'data-compliance-posture/Usermanual',
+        'data-compliance-posture/FAQ',
       ],
     }
   ],
   aigovernanceSidebar: [
     {
       type: 'category',
-      label: 'AI Governance',
+      label: 'AI and Agent Governance',
       link: {
         type: 'doc',
         id: 'ai-governance/guide', 
