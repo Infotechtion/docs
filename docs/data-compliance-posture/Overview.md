@@ -26,7 +26,7 @@ The dashboard is designed to support:
 
 ## 2) Intended users & typical responsibilities
 
-Organizations tailor access, but the dashboard commonly supports:
+Organizations can tailor access, but the dashboard commonly supports:
 
 ### A) Workspace/Site/Information Asset Owners
 Owners review posture insights for their scope and are expected to apply remediation actions on their workspaces. A typical owner loop includes reviewing risks, applying fixes (permissions/labels/sharing), and verifying remediation results.
@@ -41,11 +41,11 @@ Admins focus on report health, refresh cycles, and ensuring filters/metrics alig
 
 ## 3) Where the dashboard sits in the i-ARM posture model
 
-The posture model referenced in i-ARM materials organizes user activity around:
+The posture model referenced in i-ARM organizes user activity around:
 
-- **Manage Posture → Dashboard** (where compliance gaps, scoring, and prioritization are surfaced)
-- **Manage Posture → Disposal Reviews** (actionable remediation / review workflows) 
-- **Measure Compliance → Activity Audit** (audit-oriented evidence from activities) 
+- **Manage Posture → Data Explorer** (where data relevance classifications, scoring, and lifecycle indicators are surfaced)
+- **Manage Posture → Data Disposal Reviews** (actionable disposal / review / archival workflows) 
+- **Measure Compliance → Posture Dashboard** (activity telemetry-oriented evidence from data assets) 
 
 ---
 
@@ -65,7 +65,7 @@ This matters because posture outcomes are intended to be **defensible**: summary
 ## 5) Dashboard navigation: how users locate KPIs & insights
 
 ### 5.1 KPI-oriented navigation (example approach)
-The i-ARM KPI manual describes a common interaction pattern: users navigate to the dashboard, locate the KPI section, and use drill-through where available to view underlying records. 
+The Posture KPI describes a common interaction pattern: users navigate to the dashboard, locate the KPI section, and use drill-through where available to view underlying records. 
 
 **Example (AI/Copilot KPI):**
 - KPI: “Count of labelled files accessed by Copilot”
@@ -78,16 +78,12 @@ The i-ARM KPI manual describes a common interaction pattern: users navigate to t
 ## 6) Filters and controls users will encounter (and what they mean)
 
 ### 6.1 Workspace and Owner scoping
-A “Workspace Owner” filter was implemented to help align posture numbers with oversharing reporting and to validate results per responsible owner.
-
-Operational notes captured in delivery chat:
-- Filter values were expected to be **owner email** (not site URLs) as the dashboard matured.
-- The goal was to show only owners where there is activity/data (avoid blank owner reports).
+The “Workspace Owner” filter helps align posture numbers with oversharing reporting and to validate results per responsible owner. The posture dashboard offers several other filters to support identity focussed filtering of relevant posture events.
 
 ### 6.2 Sensitivity label controls
-Delivery changes confirm:
-- A filter for **File Sensitivity Label** was added in **Data Compliance Posture** reporting.
-- The column “SensitivityLabel” was explicitly added to show **Site Sensitivity Label** in the Data Compliance Posture report.
+The dashboard also supports sensitivity focussed posture:
+- A filter for **Data Sensitivity Label**.
+- The workspace sensitivity is a separate  filter to differentiate **Data and Workspace Sensitivity**.
 
 
 
@@ -95,7 +91,24 @@ Delivery changes confirm:
 
 ## 7) Understanding the KPIs and what they represent (examples)
 
-The KPI manual (built around an i-ARM compliance posture dashboard configuration) provides concrete KPI definitions and where they appear.
+### 7.1 What are KPIs and how they benefit your compliance program
+
+**KPIs (Key Performance Indicators)** are measurable metrics that track compliance posture across your organization's data assets. They translate complex compliance requirements into clear, actionable numbers.
+
+**Key benefits:**
+- **Risk visibility**: Identify compliance gaps at a glance (e.g., unclassified files, oversharing, unauthorized access)
+- **Prioritization**: Focus remediation efforts on high-impact risks first
+- **Trend tracking**: Monitor whether your posture improves over time
+- **Accountability**: Assign clear ownership and track remediation progress per workspace/owner
+- **Audit evidence**: Export KPI data and drill-through results to support compliance audits
+
+**Examples of KPI definitions you may see:**
+- **Sites with Access to Everyone** — identifies oversharing exposure
+- **File Level Sharing** — tracks share permissions beyond intended scope
+- **Count and list of non-classified files** — flags content missing sensitivity labels
+- **Labelled files accessed by Copilot** — monitors AI tool access to sensitive data
+- **Labelled files shared internally/externally** — categorizes sharing by sensitivity level
+
 
 ### 7.1 Examples of KPI definitions you may see
 - **Sites with Access to Everyone** 
@@ -111,7 +124,7 @@ The KPI manual (built around an i-ARM compliance posture dashboard configuration
 
 ## 8) Drill-through & investigation workflow (end user)
 
-The KPI manual describes a consistent end-user pattern:
+The posture KPIs describes a consistent end-user pattern:
 1) Select a visual segment (e.g., a workload or label category)
 2) Use a **Details** action (where available)
 3) Review the resulting table as the investigation list for follow-up 
