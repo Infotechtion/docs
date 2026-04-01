@@ -15,25 +15,25 @@ type FeatureItem = {
 
 const FeatureList: FeatureItem[] = [
   {
-    title: 'Records Lifecycle',
+    title: 'Data Posture Management',
     icon: <ImCheckboxChecked />,
     description: <>Govern the entire lifecycle, disposition, and archival of digital and physical data.</>,
-    urlTo: 'docs/records-lifecycle/overview',
+    urlTo: 'docs/data-posture-management/overview',
   },
   {
-    title: 'Data Discovery And Security',
+    title: 'Data Posture Discovery',
     icon: <HiMiniTag />,
     description: <>Discover and classify all sensitive data with AI powered accuracy and scale.</>,
-    urlTo: '/docs/data-discovery/overview',
+    urlTo: '/docs/data-posture-discovery/overview',
   },
   {
-    title: 'Digital WorkSpace Governance',
+    title: 'Data Compliance Posture',
     icon: <PiNetworkFill />,
-    description: <>Central provisioning, access, security, and lifecycle of new and existing digital workspaces.</>,
-    urlTo: '/docs/digital-workspace/overview',
+    description: <>Measure and remediate compliance posture across your data landscape.</>,
+    urlTo: '/docs/data-compliance-posture/overview',
   },
   {
-    title: 'AI Governance',
+    title: 'AI and Agent Governance',
     icon: <RiFileList2Line />,
     description: <>Secure AI for adoption and remediation of existing security, privacy, and compliance risks.</>,
     urlTo: '/docs/ai-governance/guide',
