@@ -46,10 +46,10 @@ const config: Config = {
         srcDark: 'img/logo-dark.svg', 
       },
       items: [
-        { to: '/docs/records-lifecycle/overview', label: 'Records Lifecycle', position: 'left' },
-        { to: '/docs/data-discovery/overview', label: 'Data Discovery', position: 'left' },
-        { to: '/docs/digital-workspace/overview', label: 'Digital Workspace', position: 'left' },
-        { to: '/docs/ai-governance/guide', label: 'AI Governance', position: 'left' },
+        { to: '/docs/data-posture-management/overview', label: 'Data Posture Management', position: 'left' },
+        { to: '/docs/data-posture-discovery/overview', label: 'Data Posture Discovery', position: 'left' },
+        { to: '/docs/data-compliance-posture/overview', label: 'Digital Compliance Posture', position: 'left' },
+        { to: '/docs/ai-governance/guide', label: 'AI and Agent Governance', position: 'left' },
 
         // create nested navbar using following snippit
         // {
@@ -74,10 +74,10 @@ const config: Config = {
         {
           title: 'Docs',
           items: [
-            { label: 'Records Lifecycle', to: '/docs/records-lifecycle/overview' },
-            { label: 'Data Discovery And Security', to: '/docs/data-discovery/overview' },
-            { label: 'Digital WorkSpace Governance', to: '/docs/digital-workspace/overview' },
-            { label: 'AI Governance', to: '/docs/ai-governance/guide' },
+            { label: 'Data Posture Management', to: '/docs/data-posture-management/overview' },
+            { label: 'Data Posture Discovery', to: '/docs/data-posture-discovery/overview' },
+            { label: 'Digital Compliance Posture', to: '/docs/data-compliance-posture/overview' },
+            { label: 'AI and Agent Governance', to: '/docs/ai-governance/guide' },
           ],
         },
         {
