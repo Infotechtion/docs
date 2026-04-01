@@ -8,9 +8,9 @@ sidebar_label: User Manual
 
 ## Summary
 
-i-ARM extends Microsoft Purview with comprehensive information
+i-ARM offers comprehensive information
 protection, records management, and regulatory compliance tools,
-extending its capabilities to meet the needs of organizations for robust
+in integration with Microsoft Purview to meet the needs of organizations for robust
 data governance. By integrating with other elements of the data
 governance lifecycle, i-ARM simplifies the management of retention
 schedules, ensuring compliance with legal, regulatory, and business

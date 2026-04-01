@@ -3,7 +3,7 @@ title: Overview
 sidebar_label: Overview
 hide_title: true
 ---
-# i-ARM **Data Compliance Posture** Dashboard — End User Documentation
+# i-ARM **Data Compliance Posture**
 
 > **Purpose of this guide**  
 This documentation explains how end users interpret and use the i-ARM **Data Compliance Posture** dashboard to monitor compliance gaps, prioritize risks, drill into evidence, and drive remediation actions that improve posture over time.
@@ -91,8 +91,6 @@ The dashboard also supports sensitivity focussed posture:
 
 ## 7) Understanding the KPIs and what they represent (examples)
 
-### 7.1 What are KPIs and how they benefit your compliance program
-
 **KPIs (Key Performance Indicators)** are measurable metrics that track compliance posture across your organization's data assets. They translate complex compliance requirements into clear, actionable numbers.
 
 **Key benefits:**
@@ -101,13 +99,6 @@ The dashboard also supports sensitivity focussed posture:
 - **Trend tracking**: Monitor whether your posture improves over time
 - **Accountability**: Assign clear ownership and track remediation progress per workspace/owner
 - **Audit evidence**: Export KPI data and drill-through results to support compliance audits
-
-**Examples of KPI definitions you may see:**
-- **Sites with Access to Everyone** — identifies oversharing exposure
-- **File Level Sharing** — tracks share permissions beyond intended scope
-- **Count and list of non-classified files** — flags content missing sensitivity labels
-- **Labelled files accessed by Copilot** — monitors AI tool access to sensitive data
-- **Labelled files shared internally/externally** — categorizes sharing by sensitivity level
 
 
 ### 7.1 Examples of KPI definitions you may see
@@ -144,9 +135,9 @@ A posture program example describes a clear remediation workflow:
 3) **Verify**: system re-scans to confirm the risk is resolved and compliant 
 
 ### 9.2 Example remediation logic used in posture reporting
-A specific remediation condition was implemented: **“Upgrading Site Sensitivity to Highest Sensitive File”**. 
+A specific remediation condition example includes: **“Upgrading Site Sensitivity to Highest Sensitive File”**. 
 
-> **Interpretation guidance:** This remediation pattern is used when file-level sensitivity indicates the container label should be raised to match the highest sensitivity of content within it. (Refer to the remediation text in your report for the exact rule wording.) 
+> **Interpretation guidance:** This remediation pattern is used when file-level sensitivity indicates the container label should be raised to match the highest sensitivity of content within it.
 
 ---
 
