@@ -1,7 +1,12 @@
+---
+title: Overview
+sidebar_label: Overview
+hide_title: true
+---
 # i-ARM **Data Compliance Posture** Dashboard — End User Documentation
 
 > **Purpose of this guide**  
-This documentation explains how end users interpret and use the i-ARM **Data Compliance Posture** dashboard to monitor compliance gaps, prioritize risks, drill into evidence, and drive remediation actions that improve posture over time. citeturn1search32turn1search110turn1search48
+This documentation explains how end users interpret and use the i-ARM **Data Compliance Posture** dashboard to monitor compliance gaps, prioritize risks, drill into evidence, and drive remediation actions that improve posture over time.
 
 ---
 
@@ -60,13 +65,13 @@ This matters because posture outcomes are intended to be **defensible**: summary
 ## 5) Dashboard navigation: how users locate KPIs & insights
 
 ### 5.1 KPI-oriented navigation (example approach)
-The i-ARM KPI manual describes a common interaction pattern: users navigate to the dashboard, locate the KPI section, and use drill-through where available to view underlying records. citeturn1search89turn1search21
+The i-ARM KPI manual describes a common interaction pattern: users navigate to the dashboard, locate the KPI section, and use drill-through where available to view underlying records. 
 
 **Example (AI/Copilot KPI):**
 - KPI: “Count of labelled files accessed by Copilot”
-- In the dashboard: locate **Activities by Workload**, select **Copilot**, then select **Details** to drill-through. citeturn1search89turn1search90
+- In the dashboard: locate **Activities by Workload**, select **Copilot**, then select **Details** to drill-through. 
 
-> **Practical tip:** Treat top-level KPI visuals as **summaries**; use drill-through tables as the **evidence layer** for operational follow-up. citeturn1search89turn1search110
+> **Practical tip:** Treat top-level KPI visuals as **summaries**; use drill-through tables as the **evidence layer** for operational follow-up. 
 
 ---
 
@@ -112,7 +117,7 @@ The KPI manual describes a consistent end-user pattern:
 3) Review the resulting table as the investigation list for follow-up 
 
 Common investigation pivots include:
-- Workload (including Copilot) citeturn1search90
+- Workload (including Copilot)
 - Sensitivity label categories (including identifying non-classified content) 
 
 ---
@@ -134,11 +139,11 @@ A specific remediation condition was implemented: **“Upgrading Site Sensitivit
 
 ## 10) Evidence and audit readiness (what to capture)
 
-The posture definition emphasizes “evidence capture of remediation actions and approvals” as a core property of actionable remediation. citeturn1search110
+The posture definition emphasizes “evidence capture of remediation actions and approvals” as a core property of actionable remediation. 
 
 For audit support, end users typically capture:
 - Screenshot/export of KPI and scoped filters used
-- Drill-through table export showing affected assets/activities (where permitted) citeturn1search89turn1search90
+- Drill-through table export showing affected assets/activities (where permitted) 
 
 ---
 
@@ -167,20 +172,20 @@ It is possible that posture dashboard experiences “high volume telemetry issue
 
 ## 13) Glossary (end-user friendly)
 
-- **DCPM**: Data Compliance Posture Management — continuous view of compliance across security, records, privacy, and AI constraints. citeturn1search110
-- **Owner**: Site/Workspace owner responsible for remediation actions in their scope. citeturn1search17turn1search107
-- **Drill-through**: A report action that opens a detailed table behind a summary visual (e.g., “Details”). citeturn1search90
-- **File Sensitivity Label**: A filter/field used within Data Compliance Posture reporting to scope insights by sensitivity classification. citeturn1search99turn1search86
+- **DCPM**: Data Compliance Posture Management — continuous view of compliance across security, records, privacy, and AI constraints. 
+- **Owner**: Site/Workspace owner responsible for remediation actions in their scope. 
+- **Drill-through**: A report action that opens a detailed table behind a summary visual (e.g., “Details”).
+- **File Sensitivity Label**: A filter/field used within Data Compliance Posture reporting to scope insights by sensitivity classification. 
 
 ---
 
 ## 14) Quick start checklist (for end users)
 
-1) **Scope first**: apply Workspace/Owner and label filters to your responsibility area. citeturn1search17turn1search99
-2) **Find your KPI**: use KPI sections (sharing, unlabeled content, Copilot activity). citeturn1search89turn1search91
-3) **Drill into evidence**: select a segment (e.g., Copilot workload) → **Details** to get the actionable list. citeturn1search90
-4) **Remediate**: fix permissions/labels/sharing following your organization’s process. citeturn1search107turn1search86
-5) **Verify improvement**: re-check after the next refresh/scan cycle to confirm risk reduction. citeturn1search15turn1search107
+1) **Scope first**: apply Workspace/Owner and label filters to your responsibility area. 
+2) **Find your KPI**: use KPI sections (sharing, unlabeled content, Copilot activity). 
+3) **Drill into evidence**: select a segment (e.g., Copilot workload) → **Details** to get the actionable 
+4) **Remediate**: fix permissions/labels/sharing following your organization’s process. 
+5) **Verify improvement**: re-check after the next refresh/scan cycle to confirm risk reduction. 
 
 ---
 
