@@ -1,10 +1,10 @@
 ---
 id: Getstarted
 title: Data Compliance Posture
-sidebar_label: Getstarted
+sidebar_label: Get Started
 ---
 
-# Getstarted – Data Compliance Posture Dashboard
+# Get Started – Data Compliance Posture Dashboard
 
 ## 1) Purpose and overview
 
