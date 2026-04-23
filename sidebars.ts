@@ -17,7 +17,7 @@ const sidebars: SidebarsConfig = {
           type: 'category',
           label: 'User Manual',
           items: [
-            'data-posture-management/Usermanual/Usermanual',
+            'data-posture-management/Usermanual/RecordsLifecycleUM',
           ],
         },
         'data-posture-management/FAQ',
@@ -35,7 +35,13 @@ const sidebars: SidebarsConfig = {
       items: [
         'data-posture-discovery/Overview',
         'data-posture-discovery/Getstarted',
-        'data-posture-discovery/Usermanual',
+        {
+          type: 'category',
+          label: 'User Manual',
+          items: [
+            'data-posture-discovery/Usermanual/Usermanual',
+          ],
+        },
         'data-posture-discovery/FAQ',
       ],
     }
@@ -51,7 +57,13 @@ const sidebars: SidebarsConfig = {
       items: [
         'data-compliance-posture/Overview',
         'data-compliance-posture/Getstarted',
-        'data-compliance-posture/Usermanual',
+        {
+          type: 'category',
+          label: 'User Manual',
+          items: [
+            'data-compliance-posture/Usermanual/Usermanual',
+          ],
+        },
         'data-compliance-posture/FAQ',
       ],
     }
@@ -67,6 +79,13 @@ const sidebars: SidebarsConfig = {
       items: [
         'ai-governance/guide',
         'ai-governance/privacy',
+        {
+          type: 'category',
+          label: 'User Manual',
+          items: [
+            'ai-governance/Usermanual/Usermanual',
+          ],
+        },
       ],
     }
   ],
