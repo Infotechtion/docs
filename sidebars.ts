@@ -39,7 +39,7 @@ const sidebars: SidebarsConfig = {
           type: 'category',
           label: 'User Manual',
           items: [
-            'data-posture-discovery/Usermanual/Usermanual',
+            'data-posture-discovery/Usermanual/Microsoft365',
           ],
         },
         'data-posture-discovery/FAQ',
@@ -61,7 +61,7 @@ const sidebars: SidebarsConfig = {
           type: 'category',
           label: 'User Manual',
           items: [
-            'data-compliance-posture/Usermanual/Usermanual',
+            'data-compliance-posture/Usermanual/DataCompliancePostureManager',
           ],
         },
         'data-compliance-posture/FAQ',
@@ -74,16 +74,16 @@ const sidebars: SidebarsConfig = {
       label: 'AI and Agent Governance',
       link: {
         type: 'doc',
-        id: 'ai-governance/guide', 
+        id: 'ai-governance/overview', 
       },
       items: [
-        'ai-governance/guide',
-        'ai-governance/privacy',
+        'ai-governance/overview',
+        'ai-governance/Privacy',
         {
           type: 'category',
           label: 'User Manual',
           items: [
-            'ai-governance/Usermanual/Usermanual',
+            'ai-governance/Usermanual/GovernanceBot',
           ],
         },
       ],

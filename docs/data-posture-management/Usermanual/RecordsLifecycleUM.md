@@ -1,7 +1,7 @@
 ---
 id: RecordsLifecycleUM
 title: Records Lifecycle
-sidebar_label: User Manual
+sidebar_label: Records Lifecycle
 ---
 
 # Introduction

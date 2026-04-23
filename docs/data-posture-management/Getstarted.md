@@ -1,7 +1,7 @@
 ---
 id: Getstarted
-title: Getstarted – My Disposal Dashboard
-sidebar_label: Getstarted
+title: Get Started – My Disposal Dashboard
+sidebar_label: Get Started
 ---
 
 <h1>Introduction</h1>
