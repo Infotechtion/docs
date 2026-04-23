@@ -13,7 +13,13 @@ const sidebars: SidebarsConfig = {
       items: [
         'data-posture-management/Overview',
         'data-posture-management/Getstarted',
-        'data-posture-management/Usermanual',
+        {
+          type: 'category',
+          label: 'User Manual',
+          items: [
+            'data-posture-management/Usermanual/Usermanual',
+          ],
+        },
         'data-posture-management/FAQ',
       ],
     }
