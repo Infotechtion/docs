@@ -49,7 +49,7 @@ const sidebars: SidebarsConfig = {
   dataCompliancePostureSidebar: [
     {
       type: 'category',
-      label: 'Digital Compliance Posture',
+      label: 'Data Compliance Posture',
       link: {
         type: 'doc',
         id: 'data-compliance-posture/Overview', 
@@ -78,7 +78,7 @@ const sidebars: SidebarsConfig = {
       },
       items: [
         'ai-governance/overview',
-        'ai-governance/Privacy',
+        'ai-governance/Getstarted',
         {
           type: 'category',
           label: 'User Manual',
@@ -86,6 +86,7 @@ const sidebars: SidebarsConfig = {
             'ai-governance/Usermanual/GovernanceBot',
           ],
         },
+        'ai-governance/FAQ',
       ],
     }
   ],

@@ -1,7 +1,7 @@
 ---
-id: Privacy
-title: Privacy
-sidebar_label: Privacy
+id: FAQ
+title: FAQ
+sidebar_label: FAQ
 ---
 
 Data Privacy and Security for i-ARM Databot

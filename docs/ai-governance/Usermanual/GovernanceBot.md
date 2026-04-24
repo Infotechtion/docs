@@ -156,28 +156,7 @@ If the error persists after using both buttons, contact your administrator — t
 
 Once signed in, you will see the main Databot interface. Here is an overview of all the areas on screen:
 
-```
-┌───────────────────────────────────────────────────────────────────┐
-│ ☰  (Sidebar toggle — top-left)          ✕ (Logout — top-right)   │
-├───────────────────────────────────────────────────────────────────┤
-│  SIDEBAR (when open)     │  MAIN CONTENT AREA                     │
-│  ┌─────────────────┐     │                                        │
-│  │ SELECT DATASET  │     │   Governance Databot  (title)          │
-│  │ [dropdown]      │     │                                        │
-│  ├─────────────────┤     │   [ Azure Table Storage ]  [ Power BI ]│
-│  │ CURRENT DATASET │     │   [ SQL Database                      ]│
-│  │ <name here>     │     │                                        │
-│  │ <description>   │     │   (chat messages appear here)          │
-│  ├─────────────────┤     │                                        │
-│  │ [+ New Chat]    │     │   ─────────────────────────────────── │
-│  ├─────────────────┤     │   [Select datasource] [View Prompts]   │
-│  │ CHAT HISTORY    │     │   ┌──────────────────────────────────┐ │
-│  │ ▶ Dataset Name  │     │   │ Enter your question here      →  │ │
-│  │   └ Chat 1      │     │   └──────────────────────────────────┘ │
-│  │   └ Chat 2      │     │                                        │
-│  └─────────────────┘     │                                        │
-└──────────────────────────────────────────────────────────────────┘
-```
+![Image](table.png)
 
 ### Key controls at a glance
 
