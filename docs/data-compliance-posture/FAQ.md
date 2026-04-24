@@ -1,4 +1,8 @@
-
+---
+id: FAQ
+title: FAQ
+sidebar_label: FAQ
+---
 # Data Compliance Posture FAQ
 
 ## General Questions

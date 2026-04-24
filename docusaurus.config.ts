@@ -48,7 +48,7 @@ const config: Config = {
       items: [
         { to: '/docs/data-posture-management/overview', label: 'Data Posture Management', position: 'left' },
         { to: '/docs/data-posture-discovery/overview', label: 'Data Posture Discovery', position: 'left' },
-        { to: '/docs/data-compliance-posture/overview', label: 'Digital Compliance Posture', position: 'left' },
+        { to: '/docs/data-compliance-posture/overview', label: 'Data Compliance Posture', position: 'left' },
         { to: '/docs/ai-governance/overview', label: 'AI and Agent Governance', position: 'left' },
 
         // create nested navbar using following snippit
@@ -76,7 +76,7 @@ const config: Config = {
           items: [
             { label: 'Data Posture Management', to: '/docs/data-posture-management/overview' },
             { label: 'Data Posture Discovery', to: '/docs/data-posture-discovery/overview' },
-            { label: 'Digital Compliance Posture', to: '/docs/data-compliance-posture/overview' },
+            { label: 'Data Compliance Posture', to: '/docs/data-compliance-posture/overview' },
             { label: 'AI and Agent Governance', to: '/docs/ai-governance/guide' },
           ],
         },
