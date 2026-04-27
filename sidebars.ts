@@ -18,6 +18,7 @@ const sidebars: SidebarsConfig = {
           label: 'User Manual',
           items: [
             'data-posture-management/Usermanual/RecordsLifecycleUM',
+            'data-posture-management/Usermanual/ProactiveGovernanceUM'
           ],
         },
         'data-posture-management/FAQ',
