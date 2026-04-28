@@ -88,7 +88,7 @@ The dashboard uses KPIs to translate compliance posture into a manageable set of
 | **Sites with Access to Everyone** | Number of sites that allow broad access permissions | Identifies high-risk oversharing and data exposure |
 | **File Level Sharing** | Count of files shared outside the intended audience | Signals potential privacy or confidentiality leaks |
 | **Non-classified files** | Files without a sensitivity or records label | Indicates gaps in data classification and protection |
-| **Labelled files accessed by Copilot** | Sensitive files opened by AI/Copilot services | Helps monitor advanced AI-related access risk |
+| **Labelled files accessed by AI** | Sensitive files opened by AI/Copilot services | Helps monitor advanced AI-related access risk |
 | **Sensitive files shared internally/externally** | Sensitive content shared inside or outside the organization | Tracks potential compliance and data loss issues |
 | **Policy exceptions** | Items that do not meet the configured compliance policy | Shows items needing review or remediation |
 
