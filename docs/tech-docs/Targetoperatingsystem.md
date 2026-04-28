@@ -97,7 +97,7 @@ To ensure the support staff is well-equipped to manage the Azure subscription, t
 - **Microsoft Certified: DevOps Engineer Expert (AZ-400)**
 - **Microsoft Certified: Information Protection & Governance (SC-400)**
 
-# Workflow to Manage Product Feature Release and Hotfixes
+## Workflow to Manage Product Feature Release and Hotfixes
 
 This section defines the end-to-end quality assurance framework for the Infotechtion platform, bringing together the testing cycles, defect management practices, and product release lifecycle phases that govern how features are planned, developed, tested, and approved before reaching consumers.
 
@@ -538,7 +538,7 @@ In the context of a target operating model (TOM), understanding and addressing s
 | Extension of records retention in bulk via selection of multiple items extend the retention for the first record retention in the selection, while all other record extension requests are ignored. | In Progress | Infotechtion | Scheduled Hotfix in Q1 2025 feature release. | Extend records one at a time by selecting a single record and select the retention extension option. |
 | Delay by Microsoft Purview in performing the actual compliance actions on the SharePoint records, such as Compliance Delete or Compliance Relabel, after a review has been completed. | Known Limit | Microsoft | Customer advised to raise a ticket with Microsoft if compliance actions are delayed by over 14 days from confirming disposal decisions in i-ARM interface. | Wait for Microsoft Purview to catchup with the disposition backlog across the tenant. |
 
-# i-ARM SaaS Platform — Disaster Recovery & Business Continuity
+## i-ARM SaaS Platform — Disaster Recovery & Business Continuity
 
 ## Purpose and Scope
 
