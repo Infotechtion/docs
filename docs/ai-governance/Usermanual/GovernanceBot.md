@@ -4,706 +4,513 @@ title: Governance Bot
 sidebar_label: Governance Bot
 ---
 
-# AI Governance Databot
+# i-ARM Databot — User Manual
+
+
+## 1. Overview
+
+**i-ARM Databot** is an enterprise-grade conversational AI assistant developed by **Infotechtion** that enables business users to explore, analyse, and extract insights from their organisation's data simply by asking questions in Natural Language — no SQL knowledge, no technical training, and no reliance on IT for routine data queries.
+
+The current release lets you:
+
+- Ask natural language questions against Microsoft Power BI, Azure SQL Database, and Azure Table Storage datasets
+- Receive instant answers as interactive charts, downloadable data tables, and AI-generated narrative summaries
+- Browse a curated Prompts Library of ready-made questions for each dataset
+- Save, resume, rename, and delete conversations from a persistent Chat History
+- Use AI-suggested follow-up questions to explore data layer by layer
+
+All data access is governed by your organisation's existing Microsoft Entra ID permissions.
 
 ---
 
-## Product Summary
+## 2. Who This Is For
 
-**Governance Databot** is an enterprise-grade conversational AI assistant developed by **Infotechtion** . It enables business users to explore, analyse, and extract insights from their organisation's data simply by asking questions in Natural Langauge — with no SQL knowledge, no technical training, and no reliance on the IT team for routine data queries.
-
-The Databot connects to your organisation's existing data sources — including **Microsoft Power BI**, **Azure SQL Databases**, and **Azure Table Storage** — and translates natural language questions into precise queries. Results are returned as interactive charts, downloadable data tables, and AI-generated text summaries, all within a secure, Microsoft Entra ID–authenticated web interface.
-
----
-
-## Key Features & Capabilities
-
-### 🗣️ Natural Language Data Exploration
-Ask any question in Natural Langauge. The Databot automatically translates your question into the correct query language and executes it — no technical knowledge required.
-
-### 📊 Interactive Visual Results
-Answers are returned as fully interactive charts— bar, line, pie, scatter, and more — automatically selected for the type of data returned. Charts can be zoomed, filtered, and downloaded as PNG images.
-
-### 📋 Downloadable Data Tables
-Tabular results are shown as paginated, scrollable tables with **one-click CSV download**. Tables support up to 1,000 rows by default and can be exported directly to Microsoft Excel in CSV format.
-
-### 💬 Persistent Conversation History
-Every conversation is saved automatically to a secure Azure SQL database. Users can return to any past conversation at any time, resume it, rename it, or delete it. History is organised by dataset and searchable at a glance.
-
-### 🔄  Follow-Up Question Suggestions
-After every answer, the Databot generates **2–4 contextual follow-up questions** based on the current result — enabling guided, layered data exploration without requiring users to know what to ask next.
-
-### 📚 Prompts Library
-Databot Connected to the Dataset generates prompts recommended by AI, for each dataset. Users can browse and launch these prompts with a single click — ideal for new users or standardised reporting queries.
-
-### 🔌 Multi-Source Data Connectivity
-The Databot connects to three enterprise data source types in the same interface:   
-
-| Data Source | Use Case |
+| Role | Use Case |
 |---|---|
-| **Microsoft Power BI** | Semantic models, business intelligence datasets |
-| **Azure SQL Database** | Relational business databases, transactional data |
-| **Azure Table Storage** | Cloud-hosted structured data tables |
+| **Standard Users (Business Analyst / Data Explorer)** | Ask natural language questions, explore datasets, download charts and tables for reporting and analysis |
+| **Administrator (IT / Platform Owner)** | Deploy, configure, and maintain the Databot; |
 
-### 🔐 Microsoft Entra ID Authentication (SSO)
-Users sign in using their existing Microsoft work account — no separate registration, no additional password. Multi-factor authentication (MFA) is fully supported.
-
-### 🛡️ Real-Time Query Status
-A live status indicator shows users exactly what the Databot is doing at each step — from generating the query, to fetching data, to running security checks. Users can cancel any running query at any time.
-
-### 📡 AI-Generated Dataset Descriptions
-When a user selects a dataset, the Databot automatically generates a natural language description of what the dataset contains — helping users understand what data is available before they ask their first question.
 
 ---
 
-## User Roles
+## 3. Getting to the Databot
 
-The Governance Databot has two distinct roles. There is no role selection screen — access level is determined by how the system has been configured for your account.
+### Signing In for the First Time
 
----
+1. Open your browser and navigate to the **Databot URL** provided by your administrator.
+2. The page automatically redirects to the **Microsoft sign-in page**.
+3. Enter your **work email address and password** — the same credentials you use for Microsoft 365 / Outlook.
+4. Complete any **multi-factor authentication (MFA)** prompt if required by your organisation.
+5. After a successful sign-in, you are redirected back to the Databot automatically.
 
-### Standard User (Business Analyst / Data Explorer)
+The main Databot interface loads, showing three data source cards in the centre of the screen and the sidebar toggle (☰) in the top-left corner.
 
-This is the primary role for the majority of users. Standard users interact with the Databot through the chat interface to explore data and extract insights.
+> **Note:** You do not need to create a separate Databot account. Your existing Microsoft work account is used. If you cannot sign in, contact your IT administrator.
 
-**Standard users can:**
-- Sign in using their Microsoft work account
-- Select from the data sources and datasets made available to them
-- Ask questions in natural language and receive charts, tables, and summaries
-- Browse and use the Prompts Library for their selected datasets
-- Use AI-generated follow-up question suggestions
-- View, resume, rename, and delete their own conversation history
-- Download charts as PNG images and tables as CSV files
-- Stop a running query at any time
-- Rate answers using the thumbs up / thumbs down feedback buttons
+### Returning Users
 
-**Standard users cannot:**
-- Access datasets they have not been granted permission to in Power BI or SQL
-- Bypass Microsoft Purview DLP policies — these are enforced automatically
-- See or modify another user's conversation history
-- Configure prompts, datasets, or data source connections
+On subsequent visits, if your session is still active, you will be taken directly into the application without needing to sign in again. Your last conversation may also be restored automatically.
 
-> All data access is governed by your organisation's existing permissions in Power BI workspaces, Azure SQL, and Microsoft Purview policies. The Databot does not grant any additional data access beyond what the user already holds.
+### Sign-In Error Screen
 
----
-
-### Administrator (IT / Platform Owner)
-
-Administrators are responsible for deploying, configuring, and maintaining the Databot. They do not interact through the chat UI for configuration — all admin settings are managed through Azure environment variables, the Power BI admin portal, the Microsoft Purview portal, and the Azure SQL database.
-
-**Administrators are responsible for:**
-- Deploying and updating the Databot on Azure Container Apps
-- Configuring the Entra app registration (OAuth login, API permissions)
-- Connecting data sources (Power BI workspaces, SQL servers, Storage accounts)
-- Granting the User-Assigned Managed Identity (UAMI) access to Azure SQL and Storage
-- Setting environment variables that control all application behaviour
-
-> The Deployment Guide (separate document) provides full step-by-step instructions for all administrator tasks.
-
-
-## 1. Introduction
-
-**Governance Databot** is a conversational AI assistant that lets you explore your organisation's data simply by asking questions in Natural Langauge — no technical knowledge, SQL, or formulas required.
-
-You type a question like *"Show me total sales by region for last quarter"* and the Databot:
-
-1. Translates your question into a precise database query
-2. Executes it against your connected dataset
-3. Returns the results as an interactive chart, a data table, or a narrative summary — or all three
-
-All your conversations are saved automatically and can be resumed at any time.
-
-### What data sources can I use?
-
-| Data Source | What it is |
-|---|---|
-| **Microsoft Power BI** | Semantic data models published in Power BI workspaces |
-| **Azure Table Storage** | Structured tables stored in Azure cloud storage |
-| **SQL Database** | Relational databases hosted on Azure SQL |
-
----
-
-## 2. Getting Started — Signing In
-
-### First time opening the Databot
-
-1. Open your browser and navigate to the Databot URL provided by your administrator.
-2. The page will automatically redirect you to the **Microsoft sign-in page**.
-3. Enter your **work email address and password** (the same credentials you use for Microsoft 365 / Outlook).
-4. Complete any multi-factor authentication (MFA) prompt if required by your organisation.
-5. After a successful sign-in, you will be redirected back to the Databot application automatically.
-
-> **Note:** You do not create a separate Databot account. Your existing Microsoft work account is used. If you cannot sign in, contact your IT administrator.
-
-### Returning users
-
-On subsequent visits, if you previously signed in and have not cleared your browser data, you will be taken directly into the application without needing to sign in again. Your last conversation may also be restored automatically.
-
-### Sign-in error screen
-
-If the sign-in process fails three times in a row, you will see a red **Authentication Error** box explaining the problem. This screen has two buttons:
+If the sign-in process fails three consecutive times, a red **Authentication Error** box is displayed. This screen provides two recovery options:
 
 | Button | What it does |
 |---|---|
 | **Try Again** | Resets the attempt counter and retries the sign-in flow |
-| **Reset & Refresh** | Clears all stored session data and fully reloads the app |
+| **Reset & Refresh** | Clears all stored session data and fully reloads the application |
 
-If the error persists after using both buttons, contact your administrator — the backend service may be unavailable.
+If the error persists after using both buttons, contact your administrator — the backend service may be temporarily unavailable.
 
 ---
 
-## 3. The Main Interface — A Tour
+## 4. The Main Interface
 
-Once signed in, you will see the main Databot interface. Here is an overview of all the areas on screen:
+The main interface consists of a sidebar panel, a central chat area, and an input bar at the bottom. The layout is described below:
 
 ![Image](table.png)
 
-### Key controls at a glance
+### Key Controls at a Glance
 
-| Control | Location | What it does |
+| Control / Element | Location | Description |
 |---|---|---|
-| **☰ Sidebar Toggle** | Top-left corner | Opens/closes the left sidebar panel |
-| **✕ (red) Logout** | Top-right corner | Signs you out of the application |
-| **Data source cards** | Centre of page (before start) | Clickable tiles to pick your data source |
-| **Dataset dropdown** | Sidebar (when open) | Selects which specific dataset to query |
-| **Current Dataset panel** | Sidebar, below dropdown | Shows the active dataset name and its description |
-| **+ New Chat button** | Sidebar, below Current Dataset shows when chat is currently ongoing | Starts a fresh conversation on the same dataset |
-| **Chat History** | Sidebar, bottom section | Shows all your past conversations, grouped by dataset |
-| **Select datasource button** | Input bar, left side | Opens a popup to switch to a different data source mid-chat |
-| **View Prompts button** | Input bar, right side,enables after dataset selection | Opens a popup with ready-made questions for the selected dataset |
-| **Question input box** | Bottom centre | Where you type your questions |
-| **Send button (→)** | Inside the input box (right) | Sends your question |
-| **Stop button (■)** | Inside the input box (right, during query) | Cancels a running query |
+| **☰ Sidebar Toggle** | Top-left corner | Opens and closes the left sidebar panel |
+| **✕ Logout** | Top-right corner | Signs you out of the application immediately |
+| **Data source cards** | Centre of screen (before dataset selected) | Clickable tiles to select your data source type |
+| **Select Dataset dropdown** | Sidebar — top | Selects which specific dataset to query |
+| **Current Dataset panel** | Sidebar — middle | Shows the active dataset name and its AI-generated description |
+| **+ New Chat button** | Sidebar — below Current Dataset | Starts a fresh conversation on the same dataset |
+| **Chat History** | Sidebar — bottom | All past conversations grouped by dataset; expandable accordions |
+| **Select datasource button** | Input bar — left | Opens a popup to switch data source mid-conversation |
+| **View Prompts button** | Input bar — right | Opens the Prompts Library popup for the selected dataset |
+| **Question input box** | Bottom centre | Where you type your questions in plain English |
+| **Send button (→)** | Inside input box — right | Sends your typed question |
+| **Stop button (■)** | Inside input box — right (during a query) | Cancels a query that is currently running |
 
 ---
 
-## 4. Step 1 — Choosing a Data Source
+## 5. Querying Your Data
 
-Before you can ask any questions, you must tell the Databot which type of data source you want to query.
+Querying data in the Databot follows a three-step workflow: choose a data source, select a dataset, then ask your question.
 
-### Using the datasource cards (fresh start)
+### Step 1 — Choose a Data Source
 
-When you first open the application and have no active conversation, the main area shows three clickable cards:
+Before asking any questions, select the type of data source you want to query. When no dataset is active, the main area shows three clickable cards:
 
 | Card | Icon | What it connects to |
 |---|---|---|
 | **Azure Table Storage** | Blue storage icon | Tables in your organisation's Azure Storage account |
-| **Power BI** | Yellow Power BI logo | Semantic models in Power BI workspaces |
-| **SQL Database** | Blue database icon | Relational SQL databases (full-width card, bottom row) |
+| **Power BI** | Yellow Power BI logo | Semantic models published in Power BI workspaces |
+| **SQL Database** | Blue database icon | Relational business databases hosted on Azure SQL (full-width card, bottom row) |
 
-**Click the card** for the data type you want to work with. The sidebar will open and begin loading the list of available datasets for that source.
+Click the card for the data type you want. The sidebar opens and loads the list of available datasets for that source.
 
-### Switching datasource mid-session
+**Switching data source mid-session:**
 
-You can change your data source at any time using the **"Select datasource"** button in the bottom input area.
-
-1. Click **"Select datasource"** (or the name of the currently selected source, if one is already chosen).
+1. Click the **"Select datasource"** button in the input bar.
 2. A popup appears showing the available sources in a grid.
-3. Click the source you want. The sidebar will reload with datasets for that source.
-4. **Note:** Switching to a different data source will start a fresh conversation — your current chat will not be lost (it remains in Chat History) but you will need to select a new dataset.
+3. Click the source you want. The sidebar reloads with the relevant datasets.
+4. Switching to a different data source starts a fresh conversation — your current chat is preserved in Chat History.
 
 ---
 
-## 5. Step 2 — Selecting a Dataset
+### Step 2 — Select a Dataset
 
-After choosing a datasource, you must select which specific dataset to query.
+After choosing a data source, select which specific dataset to query.
 
-### Opening the sidebar
+**Dataset Name**
+Click the **"SELECT DATASET"** dropdown in the sidebar and choose from the list. If datasets are still loading, the dropdown shows *"Loading datasets..."* — wait a moment. If none are available, contact your administrator to verify your data source access.
 
-If the sidebar is not visible, click the **☰ toggle button** (top-left). The sidebar slides in from the left.
+**Dataset Description**
+Once a dataset is selected, the **"CURRENT DATASET"** panel updates with the dataset name and an AI-generated description of its contents. Read this description before asking your first question — it tells you what data is available and what questions are worth exploring.
 
-### Choosing from the dropdown
+A blue banner also appears in the main area confirming the active dataset: *"Currently using [Dataset Name] from [Source Type]."*
 
-1. At the top of the sidebar, you will see the **"SELECT DATASET"** label and a dropdown menu.
-2. Click the dropdown and choose the dataset you want from the list.
-3. If no datasets are available for the selected source, you will see a message such as **"No SQL datasets available."**
-
-### What happens after selecting a dataset
-
-- The **"CURRENT DATASET"** panel in the sidebar updates to show:
-  - The dataset name in bold
-  - A short AI-generated description of the dataset (e.g. "This dataset contains sales performance data for all regional offices...")
-- A **"+ New Chat"** button appears below the panel.
-- The question input box at the bottom becomes active and shows the prompt **"Enter your question here."**
-- The main area shows a blue banner: **"Currently using [Dataset Name] from [Source Type]."**
-
-> **Tip:** Read the dataset description in the sidebar — it tells you what kind of data is available and what questions are worth asking.
+> **Tip:** If you are unsure what to ask, click the **"View Prompts"** button after selecting a dataset to browse ready-made questions tailored to that dataset.
 
 ---
 
-## 6. Step 3 — Asking a Question
+### Step 3 — Ask a Question
 
-With a dataset selected, you are ready to have a conversation with your data.
+With a dataset selected, the question input box at the bottom becomes active.
 
-### Typing a question
+**Typing your question**
+Click the input box (it reads *"Enter your question here"*) and type your question in plain English. Examples:
 
-1. Click on the text box at the bottom of the screen (it reads **"Enter your question here"**).
-2. Type your question in Natural Langauge, for example:
-   - *"Show me total revenue by department for Q1 2024"*
-   - *"Which products had the highest return rate last month?"*
-   - *"Compare sales performance across all regions year to date"*
+- *"Show me total revenue by department for Q1 2024"*
+- *"Which products had the highest return rate last month?"*
+- *"Compare sales performance across all regions year to date"*
 
-### Sending the question
+**Sending the question**
+Press **Enter** on your keyboard, or click the blue **send arrow (→)** inside the input box. Use **Shift + Enter** to add a new line without sending.
 
-- Press **Enter** on your keyboard, OR
-- Click the blue **send arrow (→)** button inside the right side of the input box.
+**While your question is being processed:**
+A live status indicator appears below your message, updating in real time through each processing step. The entire process typically takes 15–30 seconds depending on question complexity. You can cancel at any time by clicking the **red Stop button (■)**.
 
-> **Shift + Enter** adds a new line inside your message without sending it. This is useful for multi-line questions.
+Status messages you may see during processing:
 
-### While the question is being processed
-
-As soon as you send a question, the following happens:
-
-1. Your question appears on screen as a **blue speech bubble** on the right side.
-2. The send button is replaced by a red **Stop button (■)**.
-3. A **status indicator** appears below your message with an animated shimmer text showing what the Databot is currently doing. Examples of status messages you may see:
-   - *Received query. Initializing*
-   - *Generating DAX query*
-   - *Fetching data from Power BI*
-   - *Generating chart*
-   - *Checking data security policies*
-   - *Building response*
-
-These messages update in real time as each step completes. The entire process typically takes between 10 and 30 seconds depending on the complexity of your question and the size of the dataset.
-
-### Input box states
-
-| State | Appearance | Cause |
-|---|---|---|
-| **Active** | White background, normal text | Dataset selected, ready to type |
-| **Disabled** | Grey background | No dataset selected, or query is in progress |
-| **Setting up** | Shows "Setting up chat session..." | New chat session is being created |
-| **No dataset** | Shows "Please select a dataset first" | No dataset has been chosen yet |
-
----
-
-## 7. Understanding the Answer
-
-After your question is processed, the Databot displays its answer in the main content area. An answer can consist of up to four parts, always shown in this order:
-
-### 7.1 Chart (if applicable)
-
-An interactive Plotly chart is shown first when the Databot determines that a visual representation adds value. See **Section 8** for full details on working with charts.
-
-### 7.2 Data Table (if applicable)
-
-If the result is tabular data, a styled table is shown. Each table has a **Download CSV** icon at the top-left corner. See **Section 9** for full details.
-
-### 7.3 Description / Narrative
-
-A plain-English explanation of the result is displayed in a grey panel. For example:
-
-> *"Total sales for Q1 2024 reached £2.4 million across all regions, with the North West performing highest at £680,000 — an increase of 12% compared to Q1 2023."*
-
-### 7.4 Query (collapsible, advanced)
-
-A collapsed **"Query"** panel at the bottom shows the technical query (DAX or SQL) that was generated and executed to produce your result. See **Section 10** for details.
-
-### 7.5 Follow-up suggestions
-
-After each answer, a **"✨ I can also help you explore:"** box appears with 2–4 suggested follow-up questions relevant to your current results. See **Section 11** for details.
-
-### 7.6 Feedback buttons
-
-At the very bottom of each answer, two small icons allow you to rate the response. See **Section 15**.
-
----
-
-## 8. Working with Charts
-
-Charts are fully interactive and rendered using Plotly. The Databot automatically selects the most appropriate chart type (bar, line, pie, scatter, area chart, etc.) for your data.
-
-### Chart controls (Plotly toolbar)
-
-When you hover your mouse over a chart, a small toolbar appears in the top-right corner of the chart with the following icons:
-
-| Icon | Action |
+| Status Message | What is happening |
 |---|---|
-| 📷 Camera | **Download chart as PNG image** — saves the chart as a picture file to your computer |
-| 🔍+ Zoom in | Zooms into the chart |
-| 🔍- Zoom out | Zooms out |
-| ✛ Pan | Switches to pan mode — click and drag to move around the chart |
-| 🏠 Reset axes | Resets the view to the original zoom and position |
-| 📊 Autoscale | Automatically fits all data in view |
-| 📐 Box select / Lasso | Selects a region of the chart for zooming |
-| 📌 Toggle spike lines | Shows/hides crosshair lines on hover |
-
-### Interacting with the chart
-
-- **Hover** over any bar, line, or data point to see an exact tooltip with the values.
-- **Click and drag** on the chart axes to zoom into a specific range.
-- **Double-click** anywhere on the chart to reset the zoom.
-
-### Downloading the chart
-
-Method — Plotly toolbar: Hover over the chart → click the **camera icon** (top-right of the chart).
-
-The chart downloads as a `.png` file.
+| *Received query. Initialising* | Query received by the backend |
+| *Generating DAX / SQL query* | AI is translating your question into a precise database query |
+| *Fetching data from Power BI / SQL* | Query is being executed against the data source |
+| *Generating chart* | Visualisation is being created from the result |
+| *Building response* | Final answer is being assembled |
 
 ---
 
-## 9. Working with Data Tables
+## 6. Working with Results
 
-Data tables are shown when your query returns structured rows and columns.
+After your question is processed, the Databot displays its answer. An answer can consist of up to five components, always presented in this order:
 
-### Table features
+### Interactive Charts
 
-| Feature | Where | How |
-|---|---|---|
-| **Column headers** | Top row, grey background | Labels for each column |
-| **Alternating row colours** | Every other row is white/light grey | Makes rows easier to read |
-| **Horizontal scrolling** | At the bottom of the table | Scroll right to see all columns if the table is wide |
-| **Download CSV** | Small download icon (↓) at top-left of table | Downloads all data as a `.csv` spreadsheet file |
+An interactive Plotly chart is shown when a visual representation adds value. The Databot automatically selects the most appropriate chart type (bar, line, pie, scatter, area, etc.) for the data returned.
 
-### Pagination — Loading more rows
+When you hover over a chart, a toolbar appears in the top-right corner:
 
-By default, tables show the **first 100 rows**. If your result has more rows, a progress bar and counter appear below the table, showing for example:
+| Toolbar Icon | Action |
+|---|---|
+| 📷 Camera | Downloads the chart as a PNG image to your computer |
+| 🔍 Zoom In / Out | Zooms into or out of the chart |
+| ✛ Pan | Switches to pan mode — click and drag to navigate |
+| 🏠 Reset Axes | Returns the view to the original zoom and position |
+| 📊 Autoscale | Automatically fits all data into view |
+| 📐 Box Select / Lasso | Selects a region of the chart for zooming |
+| 📌 Toggle spike lines | Shows or hides crosshair lines on hover |
+
+**Chart interactions:**
+- **Hover** over any data point to see an exact value tooltip.
+- **Click and drag** on chart axes to zoom into a specific range.
+- **Double-click** anywhere on the chart to reset the zoom.
+- **Click a legend item** to show or hide a data series.
+
+---
+
+### Data Tables
+
+Tabular results are shown as a scrollable, styled table. Tables load the first **100 rows** by default. A progress indicator below the table shows how many rows are loaded:
 
 > **Showing 100 of 350 rows (28%)** — [Load 100 more rows ↓]
 
-Click **"Load 100 more rows ↓"** to load the next batch. Keep clicking until the counter shows **"All [N] rows loaded ✓"** in green.
+Click **"Load 100 more rows ↓"** to load additional batches. When all rows are loaded, the indicator shows **"All [N] rows loaded ✓"** in green.
 
-> **Tip:** If you need all rows in a spreadsheet, click **Download CSV** rather than loading everything on screen — the CSV always contains the full dataset up to the configured maximum (1,000 rows by default).
+| Feature | Description |
+|---|---|
+| **Column headers** | Top row, grey background — labels for each column |
+| **Alternating row colours** | White and light grey alternating rows for easier reading |
+| **Horizontal scrolling** | Scroll right to see all columns in wide tables |
+| **Download CSV (↓)** | Icon at the top-left of the table — downloads all data as a `.csv` file |
 
-### Downloading the table as CSV
-
-1. Locate the **download icon (↓)** at the top-left of the table.
-2. Click it.
-3. A file named `table-output-[timestamp].csv` will download immediately to your computer.
-4. Open the file in Microsoft Excel, Google Sheets, or any spreadsheet application.
-
----
-
-## 10. The Query Panel
-
-After every answer, a collapsible **"Query"** panel appears below the table or chart. This is aimed at more technical users who want to understand exactly how the Databot interpreted their question.
-
-### Expanding the query
-
-- Click anywhere on the **"▸ Query"** header bar to expand it.
-- The panel expands to show the **DAX or SQL query** that was generated and executed. The query is displayed in a dark (dark grey/black) code block with monospace font.
-
-### Collapsing the query
-
-- Click the **"▸ Query"** header bar again. The code block collapses.
-
-> **Note for non-technical users:** You do not need to read or understand the query. It is provided for transparency so technical users or administrators can verify that the Databot is querying the right data in the right way.
+> **Tip:** To get all rows in a spreadsheet, click **Download CSV** rather than loading rows on screen. The CSV always contains the full result set up to the configured maximum of 1,000 rows, and can be opened in Microsoft Excel or Google Sheets. The downloaded file is named `table-output-[timestamp].csv`.
 
 ---
 
-## 11. Follow-Up Questions
+### Narrative Description
 
-After every answer, a blue gradient box appears titled **"✨ I can also help you explore:"**
+A plain-English explanation of the result is displayed in a grey panel. For example:
 
-This box contains 3–4 **clickable question chips** — AI-generated suggestions for natural follow-on questions based on your current answer.
+> *"Total sales for Q1 2024 reached £2.4 million, with the North West performing highest at £680,000 — an increase of 12% compared to Q1 2023."*
 
-### Using a follow-up question
+This narrative is generated by the AI and provides context and key highlights for the data returned.
 
-1. Read the suggested questions displayed as pill-shaped buttons.
-2. Click any question chip to instantly send that question — it will appear in the input box and to be submitted.
-3. The Databot processes it just like a manually typed question.
+---
 
-### Examples of follow-up suggestions
+### Query Panel (Advanced)
 
-If you asked *"Show total revenue by region for Q1"*, follow-ups might include:
+A collapsible **"▸ Query"** panel appears below the answer. This shows the exact DAX or SQL query that was generated and executed against your data source.
+
+- Click the **"▸ Query"** header bar to expand and view the query in a dark monospace code block.
+- Click the header bar again to collapse the panel.
+
+> **Note for non-technical users:** You do not need to read or understand the query. It is provided for transparency so that technical users and administrators can verify the Databot is querying the correct data in the correct way.
+
+---
+
+### Follow-Up Suggestions
+
+After every answer, a blue gradient box titled **"I can also help you explore:"** appears with 2–4 AI-generated follow-up questions based on your current result.
+
+**Using a follow-up suggestion:**
+
+1. Read the suggested questions displayed as clickable pill-shaped chips.
+2. Click any chip to instantly submit it as your next question.
+3. The Databot processes it exactly like a manually typed question.
+
+**Example:** If you asked *"Show total revenue by region for Q1"*, follow-up suggestions might include:
 - *"Which region had the highest growth rate?"*
 - *"Break down Q1 revenue by product category"*
 - *"Compare Q1 revenue to Q1 last year"*
 
-> **Tip:** Follow-up questions are the fastest way to explore your data — they are pre-validated to be relevant to the current dataset and result.
+> **Tip:** Follow-up suggestions are the fastest way to explore your data — they are contextually generated from the current result and dataset.
 
 ---
 
-## 12. Using the Prompts Library
+### Answer Feedback
 
-The **Prompts Library** is a curated list of ready-made questions that Databot generates prompts recommended by AI, for each dataset.These are an ideal starting point if you are unsure what to ask.
+At the bottom of each AI-generated answer, two small icon buttons allow you to rate the response:
+
+| Icon | Meaning | Result |
+|---|---|---|
+| 👍 Thumbs up | The answer was helpful and accurate | Button highlights green |
+| 👎 Thumbs down | The answer was unhelpful or incorrect | Button highlights red |
+
+After clicking either button, a small message confirms: **"Thanks for your feedback!"**
+
+- Click the same button again to **clear** your rating.
+- Click the opposite button to **switch** from positive to negative, or vice versa.
+
+> **Note:** Feedback is recorded to help the team improve the Databot over time. There is no free-text comment field in Version 1.0.
+
+---
+
+## 7. The Prompts Library
+
+The **Prompts Library** is a curated set of AI-recommended, ready-made questions for each dataset — an ideal starting point if you are new to a dataset or want to run standardised reporting queries.
 
 ### Opening the Prompts Library
 
-1. Make sure a dataset is selected (the "View Prompts" button is greyed out until a dataset is chosen).
-2. Click the **"View Prompts"** button in the input bar area (above the text box, on the right).
+1. Ensure a dataset is selected — the **"View Prompts"** button is greyed out until a dataset is chosen.
+2. Click the **"View Prompts"** button in the input bar area (above the text input, on the right).
 3. A popup panel appears with recommended prompts displayed in a 2-column grid.
 
-### Understanding a prompt card
+### Prompt Cards
 
 Each prompt card shows:
-- A coloured icon on the left
-- The **question text** (what will be asked)
+- A coloured icon on the left indicating the prompt category
+- The **question text** that will be submitted when clicked
 
-### Using a prompt
+### Using a Prompt
 
 1. Click any prompt card in the popup.
 2. The popup closes automatically.
-3. The prompt text fills the input box.
-4. The question is submitted and the Databot begins processing it.
-
-### If no prompts are available
-
-The popup shows: **"No prompts available for this dataset."**
-This means no pre-configured prompts have been set up for the selected dataset. You can still type any question manually.
+3. The prompt text is placed in the input box and submitted immediately.
+4. The Databot begins processing the question.
 
 ---
 
-## 13. Managing Your Chat History
+## 8. Managing Chat History
 
-Every conversation you have is saved automatically and listed in the sidebar under **"Chat History"**.
+Every conversation is saved automatically and listed in the sidebar under **"Chat History"**. No manual save action is required.
 
-### Opening the sidebar
+### Opening the Sidebar
 
-Click the **☰ toggle button** in the top-left corner of the screen to open the sidebar.
+Click the **☰ toggle button** in the top-left corner to open the sidebar.
 
-### How chat history is organised
+### How Chat History is Organised
 
-Chat history is grouped by **dataset name**. Each dataset group is a collapsible accordion section with the dataset name as the header.
+Chat history is grouped by **dataset name**. Each dataset group is a collapsible accordion section:
 
-For example:
 ```
 ▼ Sales Performance Dataset
-    💬 Revenue breakdown by region      14/04/2026 09:15
-    💬 Top 10 products this month       13/04/2026 16:30
+    >  Revenue breakdown by region      14/04/2026  09:15
+    >  Top 10 products this month       13/04/2026  16:30
 ▶ HR Analytics Dataset
 ▶ Finance Overview
 ```
 
-### Expanding/collapsing a dataset group
+### Expanding and Collapsing Groups
 
 Click the **dataset name row** (with the chevron ▶/▼ arrow) to expand or collapse that group.
 
-### Loading a past conversation
+### Loading a Past Conversation
 
 1. Expand the dataset group containing the conversation.
-2. Click on the conversation title (the text or the message icon 💬).
-3. The main area loads all messages from that past conversation.
-4. The active dataset is automatically set to match the dataset from that conversation.
+2. Click the conversation title or the message icon.
+3. The main area loads all messages from that conversation.
+4. The active dataset is automatically set to match the dataset used in that conversation.
 5. The currently active chat is highlighted in **blue**.
 
-### Renaming a conversation
+### Renaming a Conversation
 
-1. In the chat history list, hover over the conversation you want to rename.
-2. Click the **pencil (✏) icon** that appears on the right side of the conversation row.
-3. The title changes to an editable text input with the current title highlighted.
+1. Hover over the conversation you want to rename.
+2. Click the **pencil icon (✏)** that appears on the right side of the row.
+3. The title becomes an editable text field with the current name highlighted.
 4. Type the new name.
-5. Press **Enter** or click the **green ✓ checkmark** button to save.
-6. Press **Escape** or click the **red ✕ button** to cancel without saving.
+5. Press **Enter** or click the **green ✓ checkmark** to save, or press **Escape** or click the **red ✕** to cancel.
 
-### Deleting a conversation
+> **Tip:** Use descriptive names when renaming conversations (e.g. *"Q1 2024 Regional Revenue Analysis"*) so you can find them easily later.
 
-1. In the chat history list, hover over the conversation you want to delete.
-2. Click the **bin/trash icon (🗑)** that appears on the right side.
+### Deleting a Conversation
+
+1. Hover over the conversation you want to delete.
+2. Click the **bin / trash icon (🗑)** that appears on the right side.
 3. The conversation is permanently deleted from both the sidebar and the database.
-4. If the deleted conversation was the one currently open in the main area, the main area resets to a blank state.
+4. If the deleted conversation was currently open, the main area resets to a blank state.
 
->  **Deletion is permanent and cannot be undone.** There is no confirmation prompt. Take care when clicking the delete icon.
+> **[!] Deletion is permanent and cannot be undone.** There is no confirmation prompt — take care when clicking the delete icon.
 
-### Chat titles
+### Auto-Generated Conversation Titles
 
-The conversation title is generated automatically from your first question. For example, if your first question was *"Show total sales by region"*, the title will be something like *"Total Sales Analysis by Region"*.
-
-You can rename any conversation at any time using the pencil icon (see above).
+A conversation's title is automatically generated from your first question. For example, if your first question was *"Show total sales by region"*, the title will be something like *"Total Sales Analysis by Region"*. You can rename any conversation at any time using the pencil icon.
 
 ---
 
-## 14. Starting a New Conversation
+## 9. Starting a New Conversation
 
-You can start a fresh conversation at any time without losing your history.
+You can start a fresh conversation at any time without losing your existing history.
 
-### Method 1 — The "+ New Chat" button in the sidebar
+**Method 1 — The "+ New Chat" button**
 
-1. Open the sidebar (click ☰ if it is closed).
-2. Click the **"+ New Chat"** button (blue button between the Current Dataset panel and the Chat History section).
-3. A new, empty conversation begins on the same dataset currently selected.
-4. The new conversation appears in the Chat History under the active dataset.
+1. Open the sidebar (click ☰ if closed).
+2. Click the **"+ New Chat"** button (blue button between the Current Dataset panel and Chat History).
+3. A new, empty conversation begins on the same currently selected dataset.
 
-> The "+ New Chat" button is only visible when a dataset is selected.
+> The **"+ New Chat"** button is only visible when a dataset is active.
 
-### Method 2 — Selecting a different dataset
+**Method 2 — Selecting a different dataset**
 
-If you select a different dataset from the "SELECT DATASET" dropdown while you are in the middle of a conversation, the Databot automatically creates a new conversation for the new dataset. Your previous conversation is preserved in the history.
+Choosing a different dataset from the **"SELECT DATASET"** dropdown while in a conversation automatically creates a new conversation for the new dataset. Your previous conversation is preserved in Chat History.
 
-### Method 3 — Switching data sources
+**Method 3 — Switching data source**
 
-Clicking a different data source (from the "Select datasource" button or the home screen cards) clears the current conversation area and lets you start fresh with a new dataset.
-
----
-
-## 15. Providing Feedback on Answers
-
-At the bottom of each AI-generated answer, you will see two small icon buttons for rating the response:
-
-| Icon | Meaning | Result |
-|---|---|---|
-| 👍 Thumbs up | The answer was helpful and accurate | Button turns green |
-| 👎 Thumbs down | The answer was unhelpful or incorrect | Button turns red |
-
-After clicking either button, a small message appears: **"Thanks for your feedback!"**
-
-### Changing your feedback
-
-- Click the same button again to **clear** your rating (deselects it).
-- Click the opposite button to **switch** from positive to negative or vice versa.
-
-> **Note:** Feedback is currently recorded locally in your browser session. It is used to help the team improve the Databot over time. There is no free-text comment field in v1.0.
+Clicking a different data source (from the **"Select datasource"** button or the home screen cards) clears the current conversation area and lets you start fresh with a new dataset.
 
 ---
 
-## 16. Stopping a Running Query
+## 10. Stopping a Running Query
 
-If a query is taking too long, or if you realise you asked the wrong question, you can cancel it at any time.
+If a query is taking too long, or you realise you asked the wrong question, you can cancel it at any time.
 
-### How to stop a query
+**How to stop a query:**
 
-While a query is running, the **send button** inside the input box changes to a **red filled square (■)**.
+1. While a query is running, the **send button (→)** changes to a **red filled square (■)**.
+2. Click the **red ■ Stop button**.
+3. The query is immediately cancelled.
+4. The status indicator disappears.
+5. The input box returns to its active state so you can type a new question.
 
-1. Click the **red ■ Stop button**.
-2. The query is immediately cancelled.
-3. The status indicator disappears.
-4. The input box returns to normal so you can type a new question.
-
-> **Note:** If the query was almost complete when you clicked Stop, the response may already have been generated on the server. In this case, the result will be discarded and will not appear on screen.
+> **Note:** If the query was nearly complete when you clicked Stop, the response may have already been generated on the server. In this case, the result is discarded and will not appear on screen.
 
 ---
 
-## 17. Signing Out
+## 11. Signing Out
 
 To sign out of the Databot:
 
-1. Click the **red LogOut icon (✕ / door-with-arrow)** in the **top-right corner** of the screen.
-2. You will be signed out immediately.
-3. The page will return to the sign-in state.
+1. Click the **red Logout icon (✕ / door-with-arrow)** in the **top-right corner** of the screen.
+2. You are signed out immediately.
+3. The page returns to the sign-in state.
 
-> **Note:** After signing out, the page will not automatically show an error. Simply close the browser tab or navigate away. If you return to the URL, you will be prompted to sign in again.
+> **Note:** After signing out, simply close the browser tab or navigate away. If you return to the Databot URL, you will be prompted to sign in again.
 
 ---
 
-## 18. Error Messages & Troubleshooting
+## 12. Statuses and States
 
-### "Authentication Error" — red box on login
+### Input Box States
 
-| Message | Cause | Fix |
+| Status | Appearance | When it occurs | User action |
+|---|---|---|---|
+| **Active** | White background, ready to type | Dataset selected, no query running | Type and send your question |
+| **Disabled** | Grey background, cannot type | No dataset selected, or query in progress | Select a dataset or wait for the current query to finish |
+| **Setting up** | Shows *"Setting up chat session..."* | New conversation is being initialised | Wait — the input becomes active automatically (typically 2–5 seconds) |
+| **No dataset** | Shows *"Please select a dataset first"* | No dataset has been chosen | Open the sidebar (☰) and select a dataset from the dropdown |
+
+---
+
+## 13. Limits and Guidelines
+
+| Limit | Value | Notes |
 |---|---|---|
-| Failed to authenticate after 3 attempts | The backend login service is unreachable | Click **"Reset & Refresh"** and try again, or contact your admin |
-| OAuth Error: access_denied | You cancelled or denied the Microsoft sign-in prompt | Click **"Try Again"** and complete the sign-in |
-| Backend URL not configured | Misconfigured deployment | Contact your administrator |
+| **Table rows displayed by default** | 100 rows | Additional rows are loaded in batches of 100 by clicking "Load more" |
+| **Maximum CSV export rows** | 1,000 rows | The downloaded CSV contains up to 1,000 rows regardless of how many are loaded on screen |
+| **Maximum OAuth sign-in attempts** | 3 attempts | After 3 consecutive failures, an Authentication Error screen is shown; use "Reset & Refresh" to clear and retry |
+| **Maximum request size** | ~1 MB | Very long conversations may exceed this limit; start a new chat when you see a "request too large" error |
+| **Query processing timeout** | ~120 seconds | Queries exceeding the timeout will fail; try simplifying or rephrasing the question |
+| **Simultaneous active queries** | 1 per user session | You cannot submit a new question while one is already running; use the Stop button first |
+| **Conversation auto-save** | Continuous | All messages are saved automatically — no manual save action is needed |
+| **Data source access** | Governed by existing permissions | The Databot does not grant additional data access beyond what you already hold in Power BI, Azure SQL, or Azure Storage |
 
 ---
 
-### "Please select a dataset first" — input box disabled
+## 14. Tips and Best Practices
 
-**Cause:** You have not yet selected a dataset.
-**Fix:** Open the sidebar (☰) and choose a dataset from the dropdown.
+### Writing Effective Questions
 
----
-
-### "No Power BI datasets available" / "No [Source] datasets available"
-
-**Cause:** The connection to the data source returned no datasets. This can happen if:
-- Your account does not have access to any datasets in that source
-- The data source connection is misconfigured
-
-**Fix:** Contact your administrator to verify your access and connection configuration.
-
----
-
-### "Setting up chat session..." — input box shows this message
-
-**Cause:** A new chat session is being created for you after selecting a dataset. This usually takes 2–5 seconds.
-
-**Fix:** Wait — the input will become active automatically once setup completes.
-
----
-
-### Status shows "Waiting for status connection..."
-
-**Cause:** The live WebSocket status channel is temporarily unavailable.
-
-**Fix:** This typically resolves itself within a few seconds. If it persists, refresh the page. The Databot will still process your query — you just will not see the step-by-step status updates.
-
----
-
-### "Your request was too large" error (413 error)
-
-**Cause:** You are in a very long conversation and the full conversation history is too large to send in a single request.
-
-**Fix:** Start a new chat session by clicking **"+ New Chat"** in the sidebar. Your history is preserved but the new conversation starts fresh.
-
----
-
-### "Error rendering message" — red box in the chat
-
-**Cause:** A technical error occurred while displaying the AI's response.
-
-**Fix:** This is uncommon. Refresh the page and try your question again. If it persists, note the question and report it to your administrator.
-
----
-
-### Chart does not appear / shows error
-
-**Cause:** The query returned data that could not be visualised (e.g. a single value, or incompatible data types).
-
-**Fix:** The Databot will still show the result as a data table or description. Try rephrasing your question to request a different format, e.g. *"Show me a breakdown by month"* instead of *"What is total revenue?"*
-
----
-
-### Session is lost after page refresh
-
-**Cause:** In some cases (e.g. private browsing mode, browser storage restrictions), the session cannot be saved.
-
-**Fix:** Select your dataset again from the sidebar and use the Chat History to navigate back to your previous conversation.
-
----
-
-## 19. Tips & Best Practices
-
-### Writing effective questions
-
- **Be specific** — Include time ranges, filters, and metrics:
+**Be specific** — Include time ranges, filters, and metrics:
 > *"Show me monthly revenue for the UK region from January to March 2024"*
 
- **Name the fields you care about** — If you know column names, use them:
+**Name the fields you care about** — If you know column names, use them:
 > *"Break down the Headcount column by Department and Location"*
 
- **Ask for the format you want** — Charts or tables:
-> *"Give me a bar chart of top 10 products by sales volume this year"*
+**Ask for the format you want** — Specify charts or tables:
+> *"Give me a bar chart of the top 10 products by sales volume this year"*
 
- **Avoid vague questions** — These produce less accurate results:
+**Avoid vague questions** — These produce less accurate results:
 > *"Show me the data"* or *"What happened last year?"*
 
- **Use follow-up questions** — Build on previous answers:
+**Use follow-up questions** — Build on previous answers:
 > First: *"Show me revenue by region"*
 > Then: *"Drill down into the Northern region by product category"*
 
 ---
 
-### Managing conversations
+### Managing Conversations
 
 - Keep each conversation **focused on one topic** — this helps the AI maintain context and produce more accurate follow-up answers.
-- Start a **New Chat** when you switch topics or want a clean slate.
+- Start a **New Chat** when you switch topics or datasets.
 - Use **descriptive names** when renaming conversations so you can find them easily in Chat History.
+- If you are seeing *"Request too large"* errors, start a new chat — very long single conversations can exceed the API size limit.
 
 ---
 
-### Downloading results
+### Downloading Results
 
-- Use **Download CSV** from data tables when you need to work with the data in Excel or another tool.
-- Use the **chart camera icon** to save charts as images for including in presentations or reports.
+- Use **Download CSV** from data tables when you need to work with data in Microsoft Excel or another tool.
+- Use the **chart camera icon** to save charts as PNG images for presentations or reports.
 
 ---
 
 ### Performance
 
-- **Simpler questions** get faster responses — broad or complex queries involving many filters and aggregations take longer.
-- If a query seems stuck for more than 60 seconds, click the **red Stop button (■)** and try rephrasing or simplifying the question.
-- Avoid extremely long conversations in a single session — if you are getting *"Request too large"* errors, start a new chat.
+- **Simpler, more specific questions** get faster responses — broad or complex queries involving many filters and aggregations take longer.
+- If a query appears stuck for more than 60 seconds, click the **red Stop button (■)** and try rephrasing or simplifying.
+- If the **WebSocket status connection** drops ("Waiting for status connection..."), wait a few seconds — it typically recovers automatically and the query will still complete.
 
 ---
 
-### Privacy & data handling
+### Privacy and Data Handling
 
-- All questions you ask are processed by an AI model hosted in your organisation's Azure subscription.
-- If Microsoft Purview is enabled, your questions and the generated queries are evaluated against your organisation's data governance policies before results are returned.
-- Chat history is saved in an Azure SQL database within your organisation's environment.
+- All questions you ask are processed by an AI model hosted within your organisation's Azure subscription.
+- Chat history is saved to an Azure SQL database within your organisation's environment.
 - The Databot does not share your data with any external parties.
 
 ---
 
-*For further assistance, contact your internal administrator or the delivery team.*
+## 15. Error Messages and Troubleshooting
+
+| Error / Message | Cause | Resolution |
+|---|---|---|
+| **"Failed to authenticate after 3 attempts"** | The backend login service was unreachable during sign-in | Click **"Reset & Refresh"** and try again; contact your administrator if the issue persists |
+| **"OAuth Error: access_denied"** | You cancelled or denied the Microsoft sign-in prompt | Click **"Try Again"** and complete the sign-in |
+| **"Backend URL not configured"** | Deployment misconfiguration | Contact your administrator |
+| **"Please select a dataset first"** | Input box is active but no dataset has been chosen | Open the sidebar (☰) and select a dataset from the dropdown |
+| **"No Power BI datasets available"** (or similar) | Your account has no accessible datasets in the selected source, or the connection is misconfigured | Contact your administrator to verify your access and connection settings |
+| **"Setting up chat session..."** (persists) | New session initialisation is slow or has failed | Wait 5–10 seconds; if it persists, refresh the page |
+| **"Waiting for status connection..."** | The live WebSocket status channel is temporarily unavailable | Wait a few seconds — it resolves automatically; your query will still be processed |
+| **413 / "Your request was too large"** | The conversation is too long for a single API request | Click **"+ New Chat"** in the sidebar to start a fresh conversation on the same dataset |
+| **"Error rendering message"** | A technical error occurred while displaying the AI response | Refresh the page and retry your question; report to your administrator if it recurs |
+| **Chart does not appear** | The query returned data that could not be visualised (e.g. a single scalar value or incompatible data types) | The result will still be shown as a table or narrative description; rephrase to request a breakdown or different format |
+| **Session lost after page refresh** | Browser storage restrictions or private browsing mode prevent session persistence | Select your dataset again from the sidebar and use Chat History to navigate back to your previous conversation |
+
+---
+
+## 16. Glossary
+
+- **Dataset** — A specific collection of data within a data source (e.g. a Power BI semantic model, an Azure SQL database, or an Azure Storage table) that the Databot can query.
+- **Data Source** — The platform hosting your data. The Databot currently supports three: Microsoft Power BI, Azure SQL Database, and Azure Table Storage.
+- **DAX (Data Analysis Expressions)** — The query language used by Microsoft Power BI. The Databot generates DAX automatically from your natural language question.
+- **SQL (Structured Query Language)** — The query language used by relational databases. The Databot generates SQL automatically for Azure SQL Database queries.
+- **Prompts Library** — A curated set of ready-made questions configured per dataset, accessible via the "View Prompts" button.
+- **Follow-Up Suggestions** — AI-generated question recommendations shown after each answer, based on the current result and dataset context.
+- **Chat History** — A persistent record of all your past conversations, stored securely in Azure SQL and accessible from the sidebar.
+- **Microsoft Entra ID (formerly Azure Active Directory)** — Microsoft's identity platform, used for single sign-on (SSO) authentication into the Databot.
+- **MFA (Multi-Factor Authentication)** — A security step requiring a second form of verification (e.g. an authenticator app) in addition to your password.
+- **UAMI (User-Assigned Managed Identity)** — An Azure security credential used by the backend service to access data sources without storing passwords.
+- **WebSocket** — A persistent communication channel used by the Databot to stream live query status updates to your browser in real time.
+- **Semantic Model** — A Power BI dataset that includes business-friendly naming, relationships, and measures built on top of raw data.
+
+---
+
+*Last updated: April 2026 — Version 1.0.0* |
