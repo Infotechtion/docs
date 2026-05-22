@@ -291,7 +291,12 @@ The diagram below serves as a visual guide to understanding how the i-ARM soluti
 
 The i-ARM solution is designed as a scalable, cloud-native application that integrates with Microsoft 365 and Azure services to enable intelligent records management and compliance. The architecture follows a modular approach, ensuring flexibility, security, and high availability while optimizing performance for both cloud and hybrid environments.
 
-![Image](ArchitectureImages/4.png)
+![Image](ArchitectureImages/i-ARM-architecture.png)
+
+<div style={{textAlign: 'center', margin: '1rem 0'}}>
+  <p>Click here to download the architecture diagram as PDF</p>
+  <a href={require('./ArchitectureImages/i-ARM architecture.pdf').default} download="i-ARM architecture.pdf" style={{display: 'inline-block', padding: '0.5rem 1rem', backgroundColor: '#253F89', color: '#fff', borderRadius: '4px', textDecoration: 'none'}}>Download PDF</a>
+</div>
 
 **Key Architectural Components**
 
