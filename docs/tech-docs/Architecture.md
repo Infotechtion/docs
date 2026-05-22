@@ -291,7 +291,12 @@ The diagram below serves as a visual guide to understanding how the i-ARM soluti
 
 The i-ARM solution is designed as a scalable, cloud-native application that integrates with Microsoft 365 and Azure services to enable intelligent records management and compliance. The architecture follows a modular approach, ensuring flexibility, security, and high availability while optimizing performance for both cloud and hybrid environments.
 
-![Image](ArchitectureImages/4.png)
+![Image](ArchitectureImages/i-ARM-architecture.png)
+
+<div style={{textAlign: 'left', margin: '1rem 0'}}>
+  <p>Click here to download the architecture diagram as PDF</p>
+  <a href={require('./ArchitectureImages/i-ARM architecture.pdf').default} download="i-ARM architecture.pdf" style={{display: 'inline-flex', alignItems: 'center', gap: '0.5rem', padding: '0.5rem 1rem', backgroundColor: '#253F89', color: '#fff', borderRadius: '4px', textDecoration: 'none'}}><svg stroke="currentColor" fill="currentColor" strokeWidth="0" viewBox="0 0 512 512" height="1em" width="1em"><path d="M216 0h80c13.3 0 24 10.7 24 24v168h87.7c17.8 0 26.7 21.5 14.1 34.1L269.7 378.3c-7.5 7.5-19.8 7.5-27.3 0L90.1 226.1c-12.6-12.6-3.7-34.1 14.1-34.1H192V24c0-13.3 10.7-24 24-24zm296 376v112c0 13.3-10.7 24-24 24H24c-13.3 0-24-10.7-24-24V376c0-13.3 10.7-24 24-24h146.7l49 49c20.1 20.1 52.5 20.1 72.6 0l49-49H488c13.3 0 24 10.7 24 24zm-124 88c0-11-9-20-20-20s-20 9-20 20 9 20 20 20 20-9 20-20zm64 0c0-11-9-20-20-20s-20 9-20 20 9 20 20 20 20-9 20-20z"></path></svg> Download PDF</a>
+</div>
 
 **Key Architectural Components**
 
