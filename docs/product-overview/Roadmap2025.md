@@ -66,3 +66,21 @@ The i-ARM roadmap includes 9-Month Backlog forecasted to customers, this include
 | 48 | AI Governance | AI activity review workflows and remediations | Planning | April 2026 |
 | 49 | i-ARM Administration | Administrators experience to manage ALL policies and rules in i-ARM. | Planning | April 2026 |
 | 50 | i-ARM Administration | Improvements to experience of registering a new source, and managing source configurations in i-ARM. | Planning | April 2026 |
+| 51 | Records Management | Advanced resilience, stability and accuracy in end of retention review workflows. | Production Release | 18 Aug 2026 |
+| 52 | Records Management | Replace Legacy Reports | Production Release | 18 Aug 2026 |
+| 53 | Records Management | Structured Sources – Processing Optimisations and Failed Records Retry Service | Production Release | 18 Aug 2026 |
+| 54 | Records Management | URC – Graph API Update | Production Release | 18 Aug 2026 |
+| 55 | Records Management | Structured Sources – Ability to add Group email id for Primary and Secondary Owners | Production Release | 18 Aug 2026 |
+| 56 | M365 Connector Implementation | Implement M365 Sync and metadata updates on iARM | Production Release | 18 Aug 2026 |
+| 57 | Replace Power Automate Workflows | Alternative solution for workflows (Disposal Connector) | Production Release | 18 Aug 2026 |
+| 58 | New Site Notification | Admin notification when a new site is available | Production Release | 18 Aug 2026 |
+| 59 | WORM Archival | Support ingestion of migrated files with older modified dates so that all historical items are synced even when timestamps are preserved. | Production Release | 25 Sep 2026 |
+| 60 | WORM Archival | Handle folder-move updates from SharePoint so that path changes are reflected accurately in i-ARM. | Production Release | 25 Sep 2026 |
+| 61 | AI Power Search for Data Archival | AI Databot - Advanced Search and Retrieval | Production Release | 30 Sep 2026 |
+| 62 | Records Management | Sync Summary Panel Updates | Production Release | 30 Sep 2026 |
+| 63 | SharePoint – Private Channels | Published labels available at creation that can be applied consistently | Production Release | Q3 2026 |
+| 64 | Labeling by-pass (Data Explorer) | UI dashboard or reporting of records labeled, not labeled, label removed, label changed by folder | Production Release | Q3-Q4 2026 |
+| 65 | SharePoint - Event Based | Capability to identify and trigger records upon reaching defined event dates to ensure timely compliance with retention policies. | Planning | Q4 2026 Post customer Change Freeze |
+| 66 | Reconciliation between Submitted and Received Records (DB + Azure) | Reconciliation between submitted and received in DB and Azure via number e.g. 10 sent, 10 received, check-sum (hash) and other indicators. | Planning | Q4 2026 Post customer Change Freeze |
+| 67 | SharePoint - Intelligent Record Governance, Classification and Lifecycle Management | SharePoint - Machine Assisted retention labels, Process workflow and data Integrity | Planning | Q4 2026 Post customer Change Freeze |
+
