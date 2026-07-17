@@ -1,3 +1,7 @@
+---
+draft: true
+---
+
 # Target Operating Model
 A target operating model (TOM) defines how a business or organization operates to achieve its goals and deliver value. It includes governance structures, processes, systems, skills, and performance metrics to ensure efficiency, security, and compliance. 
 The i-ARM operating model will cover Shared Responsibility Model, Skills Requirements, Microsoft Certifications Recommendations, Workflow to Manage Product Feature Release and Hotfixes, Service Request Management, and Failover Modes and Possible Resolutions. These ensure clarity in roles, essential skills, structured workflows, efficient service request handling, and robust failover strategies for operational continuity.
