@@ -25,6 +25,7 @@ const config: Config = {
         docs: {
           routeBasePath: '/docs', // Base path for docs
           sidebarPath: require.resolve('./sidebars.js'),
+          exclude: ['**/tech-docs/Targetoperatingsystem.md'],
           editUrl:
             'https://github.com/Infotechtion/docs/edit/main/', 
         },
