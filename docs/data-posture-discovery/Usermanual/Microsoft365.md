@@ -1,4 +1,4 @@
----
+﻿---
 id: Microsoft365
 title: Microsoft 365
 sidebar_label: Microsoft 365
@@ -82,8 +82,21 @@ The **My Data** component displays record files, including file metadata, retent
    - retention policy status
    - classification result
    - discovery risk indicators
+   - last accessed date
+   - data relevance statement
 6. Use filters to narrow results by file type, label, owner, or risk category.
 7. Open a convenience copy or metadata panel to inspect the details of an individual item.
+
+**New in this release**
+
+<!-- TODO: Update screenshot -->
+
+- **Last Accessed Date column** — the My Data grid now includes a Last Accessed Date column, so you can see when each record was last used.
+- **Data relevance statement** — a data relevance statement is now visible for records, giving you additional context about why an item is retained.
+- **Group email support in the people picker** — the people picker used across My Data (and the admin module) now accepts group email IDs in addition to individual users.
+- **Teaching popovers** — short teaching popovers guide you through key features the first time you encounter them.
+- **New grid icons** — additional icons in the My Data grid make record status and available actions easier to recognise at a glance.
+
 
 ### 3.2 Data Explorer
 
