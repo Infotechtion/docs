@@ -1,4 +1,4 @@
----
+﻿---
 id: RecordsLifecycleUM
 title: Records Lifecycle
 sidebar_label: Records Lifecycle
@@ -352,6 +352,15 @@ The dashboard provides an aggregated view of all expired items from
 their source locations, along with all SharePoint sites where the users
 hold a **Business Reviewer** or **Archive Reviewer** role, ensuring
 comprehensive oversight of pending actions.
+
+The aggregated view is assembled on the client, so counts and record
+groupings are summarised directly in your browser. This lets the
+dashboard render pending items faster and stay responsive as you switch
+between reviewer tabs, even when a large number of expired records are
+in scope.
+
+<!-- TODO: Update screenshot -->
+
 
 **My Disposal Dashboard -- Common Experience**
 
