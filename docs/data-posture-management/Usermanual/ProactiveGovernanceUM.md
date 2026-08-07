@@ -1,4 +1,4 @@
----
+﻿---
 id: ProactiveGovernanceUM
 title: Proactive Governance
 sidebar_label: Proactive Governance
@@ -105,8 +105,10 @@ Choose how you want to further narrow the search:
 |---|---|
 | **Data Location** | Narrow the search to one or more specific SharePoint sites by their URL |
 | **Retention Category** | Narrow the search to records that belong to specific retention categories |
+| **File Name** | Narrow the search to records whose file name matches the text you enter |
 
-Select one of the two cards and then select **Next**.
+Select one of the cards and then select **Next**. If you choose **File Name**, enter the file name to match before advancing.
+
 
 ---
 
@@ -176,6 +178,8 @@ With a completed search selected in the list, select **Review Results** in the t
 
 Shows records that are pending a governance action. These are the records you will interact with most — selecting records here enables the **Trigger Action** button.
 
+When there are no records pending a governance action, the Active tab shows a contextual empty-state message in place of the grid. The message confirms that no active records remain and offers a **Historic** call-to-action so you can move directly to the Historic tab to review records that have already been processed.
+
 ### Historic Tab
 
 Shows records that have already been processed (a governance action has been applied). This tab is read-only.
@@ -195,6 +199,14 @@ The **Column Manager** button (in the results toolbar) lets you choose which col
 Select one record in the results grid and then select the **Info** button (ⓘ) in the results toolbar to open the **File Info** panel. The panel displays the full metadata for the selected file, including label data and system properties.
 
 The Info button is disabled when no record is selected or when multiple records are selected.
+
+---
+
+### Filtering the Results Grid
+
+<!-- TODO: Update screenshot -->
+
+You can filter the records shown in the results grid to focus on a specific subset. In the filter panel, the **Guidance Notes** field is a free-text field: type any text to match records whose guidance notes contain that text. (This field was previously a fixed dropdown of predefined values.)
 
 ---
 
