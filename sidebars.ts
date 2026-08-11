@@ -124,7 +124,18 @@ const sidebars: SidebarsConfig = {
         "product-overview/Overview",
         "product-overview/Usecase",
         "product-overview/FAQ",
-        "product-overview/Roadmap2025",
+        {
+          type: "category",
+          label: "Roadmap",
+          link: {
+            type: "doc",
+            id: "product-overview/Roadmap",
+          },
+          items: [
+            "product-overview/Roadmap/2026",
+            "product-overview/Roadmap/2025",
+          ],
+        },
       ],
     },
   ],
