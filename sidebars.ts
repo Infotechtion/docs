@@ -132,6 +132,7 @@ const sidebars: SidebarsConfig = {
             id: "product-overview/Roadmap",
           },
           items: [
+            "product-overview/Roadmap/2027",
             "product-overview/Roadmap/2026",
             "product-overview/Roadmap/2025",
           ],
